@@ -117,11 +117,3 @@ classDiagram
 
 ---
 
-## 9. Mermaid 사용 팁
-
-* GitHub, GitLab, Obsidian, VS Code Markdown Preview에서 바로 렌더링 가능
-* 온라인 편집기: Mermaid Live Editor 활용 가능
-
----
-
-> 이 문서는 **발표용 / README 용도로 바로 사용 가능**하도록 작성되었습니다.
