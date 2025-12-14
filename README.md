@@ -24,7 +24,39 @@
 
 ---
 
-## 3. 실행 흐름 (Flow)
+## 3. 실행 흐름 (Activity Diagram)
+
+```mermaid
+stateDiagram-v2
+    [*] --> Start
+    Start: 프로그램 시작
+
+    Start --> LoadConfig
+    LoadConfig: 설정 파일 로드
+
+    LoadConfig --> SelectType
+    SelectType: EMQType 결정
+
+    SelectType --> CreateFactory
+    CreateFactory: MessagingFactory 생성
+
+    CreateFactory --> CreateProducer
+    CreateFactory --> CreateConsumer
+
+    CreateConsumer --> RunConsumer
+    RunConsumer: Consumer Thread 실행
+
+    CreateProducer --> WaitInput
+    WaitInput: 사용자 입력 대기
+
+    WaitInput --> SendMessage: 메시지 입력
+    SendMessage: 메시지 전송
+    SendMessage --> WaitInput
+
+    WaitInput --> Shutdown: exit 입력
+    Shutdown: 자원 정리
+    Shutdown --> [*]
+```
 
 ```mermaid
 flowchart TD
@@ -117,3 +149,11 @@ classDiagram
 
 ---
 
+## 9. Mermaid 사용 팁
+
+* GitHub, GitLab, Obsidian, VS Code Markdown Preview에서 바로 렌더링 가능
+* 온라인 편집기: Mermaid Live Editor 활용 가능
+
+---
+
+> 이 문서는 **발표용 / README 용도로 바로 사용 가능**하도록 작성되었습니다.
